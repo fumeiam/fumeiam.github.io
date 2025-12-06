@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Akash Jana | Portfolio & Resume</title>
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.12);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --card: #0f172a;
+      --border: #1f2937;
+      --radius-lg: 1.25rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 1rem;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem 1.2rem 3rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      border-color: var(--accent-soft);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.7);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .hero-title {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #f97316, #facc15);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+      max-width: 32rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out,
+        background 0.15s ease-out, border-color 0.15s ease-out;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, #f97316, #fb923c);
+      border-color: #fb923c;
+      color: #111827;
+      font-weight: 600;
+      box-shadow: 0 12px 35px rgba(249, 115, 22, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(249, 115, 22, 0.65);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.85);
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 1);
+      border-color: var(--accent-soft);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .hero-meta strong {
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #1f2937 0, #020617 65%);
+      border-radius: 1.5rem;
+      border: 1px solid var(--border);
+      padding: 1.2rem;
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.85);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card:before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0 0, rgba(249, 115, 22, 0.2), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.2), transparent 55%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-pill {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-pill span {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px #22c55e;
+    }
+
+    .hero-card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .stat-row span strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 2.2rem;
+      margin-top: 1rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h3.section-title {
+      font-size: 1.05rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .section-title span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .section-accent {
+      width: 38px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f97316, transparent);
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.92);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 1.1rem 1.1rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+    }
+
+    .about-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.9rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .skills-group h4 {
+      font-size: 0.8rem;
+      margin-bottom: 0.35rem;
+      color: #e5e7eb;
+    }
+
+    .skills-group ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .skills-group li {
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      color: var(--muted);
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 0.1rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px dashed rgba(31, 41, 55, 0.8);
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .timeline-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .timeline-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .timeline-tagline {
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+
+    .timeline-meta {
+      font-size: 0.72rem;
+      color: #6b7280;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .timeline-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    .project {
+      padding: 0.75rem 0.9rem;
+      border-radius: 1rem;
+      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.15), transparent 50%),
+        rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .project-type {
+      font-size: 0.7rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      color: var(--muted);
+      white-space: nowrap;
+      align-self: flex-start;
+    }
+
+    .project-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .project-tags span {
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .project-links a {
+      text-decoration: none;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .project-links a:hover {
+      border-color: var(--accent);
+      color: #fed7aa;
+    }
+
+    .contact-card {
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .contact-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #6b7280;
+    }
+
+    .contact-value a {
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(75, 85, 99, 0.7);
+    }
+
+    .contact-value a:hover {
+      color: #fed7aa;
+      border-bottom-color: var(--accent);
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .social-row a {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--muted);
+    }
+
+    .social-row a:hover {
+      border-color: var(--accent);
+      color: #fed7aa;
+    }
+
+    footer {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 0.72rem;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">AKASH JANA · PORTFOLIO</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Open to work · Digital Marketing · Video Editing · Python
+        </div>
+        <h1 class="hero-title">
+          Hi, I'm <span>Akash Jana</span>
+        </h1>
+        <p class="hero-subtitle">
+          Reliable and driven candidate with a mix of digital marketing, photo/video editing, and Python-based web/bot
+          development skills. I enjoy solving problems, learning fast, and helping teams succeed through organized,
+          high-quality work.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">
+            View my work
+          </a>
+          <a href="#contact" class="btn-ghost">
+            Contact me
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span>
+            <strong>What I do</strong>
+            Digital marketing · Photo/video editing · Web/bot development
+          </span>
+          <span>
+            <strong>Based in</strong>
+            Shyamnagar, West Bengal, India · Open to remote & on-site
+          </span>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-card-inner">
+          <div class="hero-pill">
+            <span></span>
+            Resume at a glance
+          </div>
+          <h2>Digital Marketing & Tech Enthusiast</h2>
+          <p>
+            Interning at a marketing agency while building skills in video editing and Python-based web/bot development.
+            Strong foundation in customer service, teamwork, and time management, with experience in English teaching.
+          </p>
+
+          <div class="stat-row">
+            <span>
+              <strong>Intern</strong>
+              Marketing Hub · 5+ months
+            </span>
+            <span>
+              <strong>1+ year</strong>
+              English teaching experience
+            </span>
+            <span>
+              <strong>Tools</strong>
+              Editing · Python · MS Office
+            </span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <div>
+        <!-- ABOUT / SUMMARY -->
+        <section id="about">
+          <h3 class="section-title">
+            <span>About</span>
+            <span class="section-accent"></span>
+          </h3>
+          <div class="card">
+            <p class="about-text">
+              I’m a motivated digital marketing and tech enthusiast with hands-on experience in English teaching and
+              an internship at Marketing Hub. I enjoy combining creative skills like photo/video editing and social media
+              management with technical abilities such as Python web/bot development, AI workflows, and computer
+              hardware knowledge. I’m comfortable working in Bengali, English, and Hindi, and I’m always ready to take
+              on new challenges, learn quickly, and support my team with organized, reliable work.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Digital marketing</span>
+              <span class="tag">Photo / video editing</span>
+              <span class="tag">Python (web & bots)</span>
+              <span class="tag">Social media</span>
+              <span class="tag">AI workflows</span>
+              <span class="tag">Time management</span>
+              <span class="tag">Teamwork & customer service</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE / EDUCATION -->
+        <section id="experience">
+          <h3 class="section-title">
+            <span>Experience & Education</span>
+            <span class="section-accent"></span>
+          </h3>
+          <div class="card">
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-main">
+                  <div>
+                    <div class="timeline-title">Digital Marketing Intern</div>
+                    <div class="timeline-tagline">Marketing Hub</div>
+                  </div>
+                  <div class="timeline-meta">5+ months · Ongoing</div>
+                </div>
+                <p class="timeline-desc">
+                  Supporting marketing activities such as social media management, basic campaign execution, and content
+                  support. Learning and applying digital marketing strategies while collaborating with the team to
+                  improve reach and engagement for different projects.
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-main">
+                  <div>
+                    <div class="timeline-title">English Teacher</div>
+                    <div class="timeline-tagline">Private / Coaching · 1 year</div>
+                  </div>
+                  <div class="timeline-meta">Teaching experience</div>
+                </div>
+                <p class="timeline-desc">
+                  Taught English to students with a focus on grammar, vocabulary, and communication skills. Planned
+                  lessons, explained concepts clearly, and helped learners build confidence in written and spoken
+                  English.
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-main">
+                  <div>
+                    <div class="timeline-title">Diploma in Computer & Photoshop</div>
+                    <div class="timeline-tagline">Youth Computer Academy</div>
+                  </div>
+                  <div class="timeline-meta">Completed</div>
+                </div>
+                <p class="timeline-desc">
+                  Gained skills in computer fundamentals, Photoshop, and related software. Built a base in digital tools
+                  that support design, editing, and everyday office work.
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-main">
+                  <div>
+                    <div class="timeline-title">High School</div>
+                    <div class="timeline-tagline">Shyamnagar Kantichandra High School</div>
+                  </div>
+                  <div class="timeline-meta">Completed</div>
+                </div>
+                <p class="timeline-desc">
+                  Completed higher secondary education, building core academic knowledge and communication skills.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+          <h3 class="section-title">
+            <span>Selected Projects</span>
+            <span class="section-accent"></span>
+          </h3>
+          <div class="card">
+            <div class="projects-grid">
+              <div class="project">
+                <div class="project-header">
+                  <div>
+                    <div class="project-title">Short-Form Social Media Edits</div>
+                    <div class="project-desc">
+                      A collection of Instagram/Facebook style short videos focused on smooth transitions, clean cuts,
+                      and music sync. Created to support brand awareness, engagement, or personal content.
+                    </div>
+                  </div>
+                  <div class="project-type">Reels / Short videos</div>
+                </div>
+                <div class="project-meta">
+                  <div class="project-tags">
+                    <span>Photo / video editing</span>
+                    <span>Social media</span>
+                    <span>Beat sync</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      View sample edit
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project">
+                <div class="project-header">
+                  <div>
+                    <div class="project-title">Python-Based Web/Bot Experiments</div>
+                    <div class="project-desc">
+                      Small projects using Python for web applications and bots, exploring automation, simple
+                      integrations, and AI-powered workflows to make tasks easier or faster.
+                    </div>
+                  </div>
+                  <div class="project-type">Python · Bots</div>
+                </div>
+                <div class="project-meta">
+                  <div class="project-tags">
+                    <span>Python (≈70%)</span>
+                    <span>Automation</span>
+                    <span>AI workflows</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      View project / repo
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project">
+                <div class="project-header">
+                  <div>
+                    <div class="project-title">Marketing & Content Support – Marketing Hub</div>
+                    <div class="project-desc">
+                      Assisted with marketing tasks during internship: content ideas, post support, basic digital
+                      marketing activities, and coordination with the team to support campaigns.
+                    </div>
+                  </div>
+                  <div class="project-type">Internship work</div>
+                </div>
+                <div class="project-meta">
+                  <div class="project-tags">
+                    <span>Digital marketing</span>
+                    <span>Teamwork</span>
+                    <span>Customer focus</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      Add portfolio link
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside>
+        <!-- SKILLS -->
+        <section>
+          <h3 class="section-title">
+            <span>Skills</span>
+            <span class="section-accent"></span>
+          </h3>
+          <div class="card">
+            <div class="skills-grid">
+              <div class="skills-group">
+                <h4>Digital & Creative</h4>
+                <ul>
+                  <li>Digital marketing</li>
+                  <li>Photo editing</li>
+                  <li>Video editing</li>
+                  <li>Social media management</li>
+                </ul>
+              </div>
+              <div class="skills-group">
+                <h4>Technical</h4>
+                <ul>
+                  <li>Python (web & bots · ~70%)</li>
+                  <li>AI workflow knowledge</li>
+                  <li>Computer hardware</li>
+                  <li>Basic troubleshooting</li>
+                </ul>
+              </div>
+              <div class="skills-group">
+                <h4>Productivity</h4>
+                <ul>
+                  <li>Microsoft Office</li>
+                  <li>Time management</li>
+                  <li>Task prioritization</li>
+                </ul>
+              </div>
+              <div class="skills-group">
+                <h4>People & Service</h4>
+                <ul>
+                  <li>Teamwork & collaboration</li>
+                  <li>Customer service</li>
+                  <li>Communication</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LANGUAGES -->
+        <section>
+          <h3 class="section-title">
+            <span>Languages</span>
+            <span class="section-accent"></span>
+          </h3>
+          <div class="card">
+            <div class="skills-grid">
+              <div class="skills-group">
+                <h4>Spoken</h4>
+                <ul>
+                  <li>Bengali (native)</li>
+                  <li>English (fluent)</li>
+                  <li>Hindi (fluent)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+          <h3 class="section-title">
+            <span>Contact & Details</span>
+            <span class="section-accent"></span>
+          </h3>
+          <div class="card contact-card">
+            <div class="contact-row">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">
+                <a href="mailto:cntactmee@gmail.com">cntactmee@gmail.com</a>
+              </span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Phone</span>
+              <span class="contact-value">
+                <a href="tel:+918100056910">+91 81000 56910</a>
+              </span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Address</span>
+              <span class="contact-value">
+                Feeder Road, Kowgachi, Shyamnagar, North 24 Parganas, West Bengal, 743127, India
+              </span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Date of Birth</span>
+              <span class="contact-value">
+                25 November 2003
+              </span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Social / Links</span>
+              <div class="social-row contact-value">
+                <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">YouTube</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">More links</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Akash Jana. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
