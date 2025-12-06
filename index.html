@@ -7,14 +7,14 @@
 
   <style>
     :root {
-      --bg: #050816;
-      --bg-alt: #0b1020;
-      --accent: #f97316;
-      --accent-soft: rgba(249, 115, 22, 0.12);
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --card: #0f172a;
-      --border: #1f2937;
+      --bg: #000000;
+      --bg-alt: #050505;
+      --accent: #e50914;
+      --accent-soft: rgba(229, 9, 20, 0.18);
+      --text: #ffffff;
+      --muted: #b3b3b3;
+      --card: #0a0a0a;
+      --border: #1a1a1a;
       --radius-lg: 1.25rem;
     }
 
@@ -25,9 +25,7 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
+      background: #000000;
       color: var(--text);
       line-height: 1.6;
     }
@@ -79,7 +77,7 @@
 
     nav a:hover {
       border-color: var(--accent-soft);
-      background: rgba(15, 23, 42, 0.9);
+      background: #111111;
       color: var(--text);
     }
 
@@ -98,7 +96,7 @@
       padding: 0.3rem 0.7rem;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.7);
+      background: #111111;
       font-size: 0.7rem;
       color: var(--muted);
       margin-bottom: 0.75rem;
@@ -115,13 +113,35 @@
     .hero-title {
       font-size: 2.1rem;
       font-weight: 700;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    @keyframes heroGlow {
+      0%, 100% {
+        text-shadow:
+          0 0 4px rgba(229, 9, 20, 0.6),
+          0 0 10px rgba(229, 9, 20, 0.4);
+      }
+      50% {
+        text-shadow:
+          0 0 8px rgba(229, 9, 20, 0.9),
+          0 0 16px rgba(229, 9, 20, 0.6);
+      }
     }
 
     .hero-title span {
-      background: linear-gradient(120deg, #f97316, #facc15);
-      -webkit-background-clip: text;
-      color: transparent;
+      color: var(--accent);
+      animation: heroGlow 2.6s ease-in-out infinite;
+    }
+
+    .hero-photo {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      margin: 0.5rem 0 1.1rem;
+      box-shadow: 0 0 16px rgba(229, 9, 20, 0.45);
     }
 
     .hero-subtitle {
@@ -154,26 +174,26 @@
     }
 
     .btn-primary {
-      background: linear-gradient(120deg, #f97316, #fb923c);
-      border-color: #fb923c;
-      color: #111827;
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000000;
       font-weight: 600;
-      box-shadow: 0 12px 35px rgba(249, 115, 22, 0.45);
+      box-shadow: 0 0 18px rgba(229, 9, 20, 0.6);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(249, 115, 22, 0.65);
+      box-shadow: 0 0 24px rgba(229, 9, 20, 0.8);
     }
 
     .btn-ghost {
-      background: rgba(15, 23, 42, 0.85);
+      background: #111111;
       border-color: var(--border);
       color: var(--muted);
     }
 
     .btn-ghost:hover {
-      background: rgba(15, 23, 42, 1);
+      background: #151515;
       border-color: var(--accent-soft);
       color: var(--text);
       transform: translateY(-1px);
@@ -199,11 +219,11 @@
     }
 
     .hero-card {
-      background: radial-gradient(circle at top, #1f2937 0, #020617 65%);
+      background: radial-gradient(circle at top, #1a0000 0, #000000 65%);
       border-radius: 1.5rem;
       border: 1px solid var(--border);
       padding: 1.2rem;
-      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.85);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.85);
       position: relative;
       overflow: hidden;
     }
@@ -212,9 +232,10 @@
       content: "";
       position: absolute;
       inset: -40%;
-      background: radial-gradient(circle at 0 0, rgba(249, 115, 22, 0.2), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.2), transparent 55%);
-      opacity: 0.6;
+      background:
+        radial-gradient(circle at 0 0, rgba(229, 9, 20, 0.22), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(120, 0, 0, 0.18), transparent 55%);
+      opacity: 0.65;
       pointer-events: none;
     }
 
@@ -230,7 +251,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(0, 0, 0, 0.9);
       border: 1px solid rgba(148, 163, 184, 0.45);
       color: var(--muted);
       margin-bottom: 0.8rem;
@@ -301,15 +322,15 @@
       width: 38px;
       height: 2px;
       border-radius: 999px;
-      background: linear-gradient(90deg, #f97316, transparent);
+      background: linear-gradient(90deg, var(--accent), transparent);
     }
 
     .card {
-      background: rgba(15, 23, 42, 0.92);
+      background: rgba(0, 0, 0, 0.92);
       border-radius: var(--radius-lg);
       border: 1px solid rgba(31, 41, 55, 0.9);
       padding: 1.1rem 1.1rem;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
     }
 
     .about-text {
@@ -329,7 +350,7 @@
       padding: 0.25rem 0.6rem;
       border-radius: 999px;
       border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(0, 0, 0, 0.9);
       color: var(--muted);
     }
 
@@ -357,7 +378,7 @@
     .skills-group li {
       padding: 0.22rem 0.55rem;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(0, 0, 0, 0.9);
       border: 1px solid rgba(55, 65, 81, 0.8);
       color: var(--muted);
     }
@@ -421,8 +442,8 @@
     .project {
       padding: 0.75rem 0.9rem;
       border-radius: 1rem;
-      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.15), transparent 50%),
-        rgba(15, 23, 42, 0.95);
+      background: radial-gradient(circle at top left, rgba(229, 9, 20, 0.15), transparent 50%),
+        rgba(0, 0, 0, 0.95);
       border: 1px solid rgba(31, 41, 55, 0.9);
     }
 
@@ -442,7 +463,7 @@
       font-size: 0.7rem;
       padding: 0.18rem 0.55rem;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(0, 0, 0, 0.9);
       border: 1px solid rgba(55, 65, 81, 0.8);
       color: var(--muted);
       white-space: nowrap;
@@ -462,6 +483,7 @@
       gap: 0.6rem;
       font-size: 0.72rem;
       color: var(--muted);
+      flex-wrap: wrap;
     }
 
     .project-tags {
@@ -474,7 +496,7 @@
       padding: 0.2rem 0.5rem;
       border-radius: 999px;
       border: 1px solid rgba(55, 65, 81, 0.8);
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(0, 0, 0, 0.9);
     }
 
     .project-links {
@@ -488,12 +510,33 @@
       padding: 0.2rem 0.55rem;
       border-radius: 999px;
       border: 1px solid rgba(55, 65, 81, 0.8);
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(0, 0, 0, 0.9);
     }
 
     .project-links a:hover {
       border-color: var(--accent);
       color: #fed7aa;
+    }
+
+    /* Embedded media (videos & screenshots) */
+    .embed-media {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      background: #000000;
+      border: 1px solid var(--border);
+      margin: 0.35rem 0 0.6rem;
+    }
+
+    .embed-media iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     .contact-card {
@@ -537,7 +580,7 @@
       font-size: 0.78rem;
       padding: 0.25rem 0.6rem;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(0, 0, 0, 0.95);
       border: 1px solid rgba(55, 65, 81, 0.9);
       color: var(--muted);
     }
@@ -603,6 +646,9 @@
         <h1 class="hero-title">
           Hi, I'm <span>Akash Jana</span>
         </h1>
+
+        <img src="Akash.jpg" alt="Akash Jana" class="hero-photo" />
+
         <p class="hero-subtitle">
           Reliable and driven candidate with a mix of digital marketing, photo/video editing, and Python-based web/bot
           development skills. I enjoy solving problems, learning fast, and helping teams succeed through organized,
@@ -748,9 +794,6 @@
                   </div>
                   <div class="timeline-meta">Completed</div>
                 </div>
-                <p class="timeline-desc">
-                  Completed higher secondary education, building core academic knowledge and communication skills.
-                </p>
               </div>
             </div>
           </div>
@@ -764,76 +807,252 @@
           </h3>
           <div class="card">
             <div class="projects-grid">
+
+              <!-- Marketing Edit 1 -->
               <div class="project">
                 <div class="project-header">
                   <div>
-                    <div class="project-title">Short-Form Social Media Edits</div>
+                    <div class="project-title">Marketing Video Edit #1</div>
                     <div class="project-desc">
-                      A collection of Instagram/Facebook style short videos focused on smooth transitions, clean cuts,
-                      and music sync. Created to support brand awareness, engagement, or personal content.
+                      Social media marketing edit focused on clean cuts, strong hooks and clear messaging to support
+                      brand awareness and engagement.
                     </div>
                   </div>
-                  <div class="project-type">Reels / Short videos</div>
+                  <div class="project-type">Marketing · Social Media</div>
                 </div>
+
+                <div class="embed-media">
+                  <iframe
+                    src="https://drive.google.com/file/d/1LjnBeFAHjQkQZl-xnjO9ZaLAOjZIohzW/preview"
+                    allow="autoplay"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+
                 <div class="project-meta">
                   <div class="project-tags">
-                    <span>Photo / video editing</span>
+                    <span>Short-form video</span>
+                    <span>Brand awareness</span>
+                    <span>Optimised for mobile</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://drive.google.com/file/d/1LjnBeFAHjQkQZl-xnjO9ZaLAOjZIohzW/view?usp=drivesdk"
+                       target="_blank" rel="noopener noreferrer">
+                      Open in Drive
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Marketing Edit 2 -->
+              <div class="project">
+                <div class="project-header">
+                  <div>
+                    <div class="project-title">Marketing Video Edit #2</div>
+                    <div class="project-desc">
+                      Designed for paid or organic campaigns with timing, text overlays and call-to-action to drive clicks
+                      or enquiries.
+                    </div>
+                  </div>
+                  <div class="project-type">Marketing · Campaign</div>
+                </div>
+
+                <div class="embed-media">
+                  <iframe
+                    src="https://drive.google.com/file/d/1UfZg9Q5dhB2FuvMlgEddN3BIeO7KHQ5i/preview"
+                    allow="autoplay"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+
+                <div class="project-meta">
+                  <div class="project-tags">
+                    <span>CTA focused</span>
+                    <span>Text overlays</span>
                     <span>Social media</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://drive.google.com/file/d/1UfZg9Q5dhB2FuvMlgEddN3BIeO7KHQ5i/view?usp=drivesdk"
+                       target="_blank" rel="noopener noreferrer">
+                      Open in Drive
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Marketing Edit 3 -->
+              <div class="project">
+                <div class="project-header">
+                  <div>
+                    <div class="project-title">Marketing Video Edit #3</div>
+                    <div class="project-desc">
+                      Story-focused edit highlighting product or service benefits in a simple, easy-to-follow structure.
+                    </div>
+                  </div>
+                  <div class="project-type">Story-led Marketing</div>
+                </div>
+
+                <div class="embed-media">
+                  <iframe
+                    src="https://drive.google.com/file/d/1QZGHIMv5_8q6Q38ZLNs7I8GUlbpJ0Veg/preview"
+                    allow="autoplay"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+
+                <div class="project-meta">
+                  <div class="project-tags">
+                    <span>Storytelling</span>
+                    <span>Product highlight</span>
+                    <span>Engagement</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://drive.google.com/file/d/1QZGHIMv5_8q6Q38ZLNs7I8GUlbpJ0Veg/view?usp=drivesdk"
+                       target="_blank" rel="noopener noreferrer">
+                      Open in Drive
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Marketing Edit 4 -->
+              <div class="project">
+                <div class="project-header">
+                  <div>
+                    <div class="project-title">Marketing Video Edit #4</div>
+                    <div class="project-desc">
+                      Fast-paced edit that focuses on grabbing attention in the first few seconds with transitions and beat sync.
+                    </div>
+                  </div>
+                  <div class="project-type">Hooks & Transitions</div>
+                </div>
+
+                <div class="embed-media">
+                  <iframe
+                    src="https://drive.google.com/file/d/1ipdU37tOv8uEESMMvfp9GdkSnYQKD9pj/preview"
+                    allow="autoplay"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+
+                <div class="project-meta">
+                  <div class="project-tags">
+                    <span>Transitions</span>
                     <span>Beat sync</span>
+                    <span>Short-form</span>
                   </div>
                   <div class="project-links">
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                      View sample edit
+                    <a href="https://drive.google.com/file/d/1ipdU37tOv8uEESMMvfp9GdkSnYQKD9pj/view?usp=drivesdk"
+                       target="_blank" rel="noopener noreferrer">
+                      Open in Drive
                     </a>
                   </div>
                 </div>
               </div>
 
+              <!-- Marketing Edit 5 -->
               <div class="project">
                 <div class="project-header">
                   <div>
-                    <div class="project-title">Python-Based Web/Bot Experiments</div>
+                    <div class="project-title">Marketing Video Edit #5</div>
                     <div class="project-desc">
-                      Small projects using Python for web applications and bots, exploring automation, simple
-                      integrations, and AI-powered workflows to make tasks easier or faster.
+                      Edit focused on clean branding, readable text and consistency, suitable for long-term brand use on social media.
                     </div>
                   </div>
-                  <div class="project-type">Python · Bots</div>
+                  <div class="project-type">Branding · Social Media</div>
+                </div>
+
+                <div class="embed-media">
+                  <iframe
+                    src="https://drive.google.com/file/d/1nTC8020FkMeBJlvU52yVEedj2KoY2m10/preview"
+                    allow="autoplay"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+
+                <div class="project-meta">
+                  <div class="project-tags">
+                    <span>Branding</span>
+                    <span>Clean design</span>
+                    <span>Social feed</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://drive.google.com/file/d/1nTC8020FkMeBJlvU52yVEedj2KoY2m10/view?usp=drivesdk"
+                       target="_blank" rel="noopener noreferrer">
+                      Open in Drive
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Facebook Page Management -->
+              <div class="project">
+                <div class="project-header">
+                  <div>
+                    <div class="project-title">Facebook Page Management</div>
+                    <div class="project-desc">
+                      Managing Facebook pages with consistent posting, basic content planning and audience-focused creatives.
+                      Screenshots show a sample list of pages handled.
+                    </div>
+                  </div>
+                  <div class="project-type">Social Media Management</div>
+                </div>
+
+                <div class="embed-media">
+                  <iframe
+                    src="https://drive.google.com/file/d/1un_vCq7JRXvLqhYUiBfryfoHqSNcPmWy/preview"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+
+                <div class="embed-media">
+                  <iframe
+                    src="https://drive.google.com/file/d/1FGnohzbVl_vGzNShIorZ27616PEdYk9z/preview"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+
+                <div class="project-meta">
+                  <div class="project-tags">
+                    <span>Facebook pages</span>
+                    <span>Content management</span>
+                    <span>Social media</span>
+                  </div>
+                  <div class="project-links">
+                    <a href="https://drive.google.com/file/d/1un_vCq7JRXvLqhYUiBfryfoHqSNcPmWy/view?usp=sharing"
+                       target="_blank" rel="noopener noreferrer">
+                      Open Screenshot 1
+                    </a>
+                    <a href="https://drive.google.com/file/d/1FGnohzbVl_vGzNShIorZ27616PEdYk9z/view?usp=drive_link"
+                       target="_blank" rel="noopener noreferrer">
+                      Open Screenshot 2
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Discord Bot Project -->
+              <div class="project">
+                <div class="project-header">
+                  <div>
+                    <div class="project-title">Immortalized Ahri Bot – Discord Bot</div>
+                    <div class="project-desc">
+                      A Discord bot built with Python, focused on automation, helpful commands and personality, showcasing
+                      my web/bot development and API integration skills.
+                    </div>
+                  </div>
+                  <div class="project-type">Python · Discord Bot</div>
                 </div>
                 <div class="project-meta">
                   <div class="project-tags">
-                    <span>Python (≈70%)</span>
+                    <span>Python</span>
                     <span>Automation</span>
-                    <span>AI workflows</span>
+                    <span>Bots</span>
                   </div>
                   <div class="project-links">
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                      View project / repo
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="project">
-                <div class="project-header">
-                  <div>
-                    <div class="project-title">Marketing & Content Support – Marketing Hub</div>
-                    <div class="project-desc">
-                      Assisted with marketing tasks during internship: content ideas, post support, basic digital
-                      marketing activities, and coordination with the team to support campaigns.
-                    </div>
-                  </div>
-                  <div class="project-type">Internship work</div>
-                </div>
-                <div class="project-meta">
-                  <div class="project-tags">
-                    <span>Digital marketing</span>
-                    <span>Teamwork</span>
-                    <span>Customer focus</span>
-                  </div>
-                  <div class="project-links">
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                      Add portfolio link
+                    <a href="https://github.com/fumeiam/Immortalized-Ahri-Bot/"
+                       target="_blank" rel="noopener noreferrer">
+                      View GitHub repo
                     </a>
                   </div>
                 </div>
@@ -948,7 +1167,7 @@
               <div class="social-row contact-value">
                 <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
                 <a href="#" target="_blank" rel="noopener noreferrer">YouTube</a>
-                <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://github.com/fumeiam" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="#" target="_blank" rel="noopener noreferrer">More links</a>
               </div>
             </div>
